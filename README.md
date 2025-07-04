@@ -1,1 +1,1 @@
-# patient_id
+This script will be help people to add patient id when the original files does not have this info.
