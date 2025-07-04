@@ -4,7 +4,7 @@ import os
 # antes de iniciar, criar pasta para salvar os novos arquivos
 
 # selecionar pasta com arquivos dicom corrompidos
-lista = os.listdir('C:\\Users\\Elekta\\Desktop\\celio')
+lista = os.listdir('selecionar_pasta_arquivos_corrompidos')
 
 #'\\\\RADION05\\Arquivos Compartilhados\\2. Imagens Externas\\roberto'
 print(f'Número de arquivos: {len(lista)}')
@@ -13,9 +13,9 @@ print(f'Número de arquivos: {len(lista)}')
 for count, file in enumerate(lista):
     print(count)
     # selecionar pasta em que estão os arquivos a serem modificados
-    dataset = pydicom.dcmread(f'C:\\Users\\Elekta\\Desktop\\celio\\{file}', force=True)
+    dataset = pydicom.dcmread(f'selecionar_pasta_arquivos_corrompidos\\{file}', force=True)
     # colocar o nome do paciente e o ID do paciente
-    dataset.PatientName = "celio"
-    dataset.PatientID = 'celio'
+    dataset.PatientName = "patient_name"
+    dataset.PatientID = "patient_id"
     # selecionar pasta em que os arquivos serão salvos (LEMBRAR DE CRIAR A PASTA ANTES)
-    dataset.save_as(f'C:\\Users\\Elekta\\Desktop\\Imagens PatientID\\celio\\{file}')
+    dataset.save_as(f'selecionar_pasta_arquivos_a_serem_salvos\\{file}')
